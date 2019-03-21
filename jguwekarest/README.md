@@ -56,7 +56,7 @@ mvn clean package
 
 4. Build le Docker container
 ```shell
-sudo docker build -t locoboy96/jguwekarest:OAS3 .
+sudo docker build -t jguweka/jguweka:OAS3 .
 ```
 
 5. Exécuter docker-compose
