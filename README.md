@@ -32,11 +32,6 @@ sudo apt install git
 sudo apt install maven
 ```
 
-6. Télécharger et installer JProfiler sur le site :
-```shell
-https://www.ej-technologies.com/download/jprofiler/files
-```
-
 ## Deployment de Weka Rest sur Docker
 
 1. Cloner le projet
@@ -64,8 +59,34 @@ sudo docker build -t jguweka/jguweka:OAS3 .
 sudo docker-compose up
 ```
 
-## Configuration de JProfiler
+## Exécution de JProfiler
 
+1. Télécharger et installer JProfiler GUI sur le site :
+```shell
+https://www.ej-technologies.com/download/jprofiler/files
+```
+
+2. Lancer l'application JProfiler GUI
+```shell
+./jprofiler_linux_11_0.sh
+```
+
+Si l'application ne veut pas se lancer, donner d'abord permission pour l'exécution
+```shell
+chmod +x <path absolu au fichier>/jprofiler_linux_11_0.sh
+```
+
+3. Lors de l'installation, choisir l'activation de la version essai (trial)
+
+4. Pour commencer une nouvelle session de JProfiler, effectuer les étapes suivantes :
+```shell
+1. Menu -> Session -> New Session
+2. Session Type -> Attach -> Attach to remote JVM
+3. Choisir l'adresse IP du docker container de WekaRest (127.0.0.1)
+4. Choisir le port du docker container de WekaRest (8849)
+5. Cliquer sur OK
+6. Choisir Evaluate
+```
 
 ## Configuration de JMeter
 
