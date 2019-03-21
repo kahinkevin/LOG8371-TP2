@@ -1,21 +1,71 @@
-[![Build Status](https://travis-ci.com/Locoboy96/LOG8371-TP1.svg?branch=master)](https://travis-ci.com/Locoboy96/LOG8371-TP1)
+# TP2 - Weka REST
 
-# WEKA (stable version)
+## Installation des requis du projet
 
-Read-only git mirror of Weka's subversion repository.
+1. Mettre à jour le package manager
+```shell
+sudo apt-get update
+```
 
-## Source code
+2. Installer Docker
+```shell
+sudo apt-get install docker-ce docker-ce-cli
+```
 
-The official WEKA source code of the stable version is available from this URL:
+Si vous avez des problèmes pour installer Docker, suivez les étapes de ce site :
+```shell
+https://docs.docker.com/install/linux/docker-ce/ubuntu/
+```
 
-https://svn.cms.waikato.ac.nz/svn/weka/branches/stable-3-8/
+3. Installer Docker-compose
+```shell
+sudo apt install docker-compose
+```
 
-## Contributions/Bug fixes
+4. Installer Git
+```shell
+sudo apt install git
+```
 
-Contributions and bug fixes an be contributed as patch file and posted to the
-[WEKA mailing list](https://list.waikato.ac.nz/mailman/listinfo/wekalist).
+5. Installer Maven
+```shell
+sudo apt install maven
+```
 
-## Links
+6. Télécharger et installer JProfiler sur le site :
+```shell
+https://www.ej-technologies.com/download/jprofiler/files
+```
 
-* [WEKA Homepage](https://www.cs.waikato.ac.nz/ml/weka/)
+## Deployment de Weka Rest sur Docker
+
+1. Cloner le projet
+```shell
+git clone https://github.com/kahinkevin/LOG8371-TP2.git
+```
+
+2. Naviguer dans le dossier du projet
+```shell
+cd LOG8371-TP2
+```
+
+3. Compiler le projet Weka REST
+```shell
+mvn clean package
+```
+
+4. Build le Docker container
+```shell
+sudo docker build -t jguweka/jguweka:OAS3 .
+```
+
+5. Exécuter docker-compose
+```shell
+sudo docker-compose up
+```
+
+## Configuration de JProfiler
+
+
+## Configuration de JMeter
 
