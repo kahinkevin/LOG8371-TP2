@@ -1,49 +1,71 @@
-# JGU WEKA Rest Service
+# TP2 - Weka REST
 
-RESTful API Webservice to WEKA Machine Learning Algorithms.
-This webservice provides an [OpenRiskNet](https://openrisknet.org/) compliant REST interface to machine learning algorithms from the WEKA Java Library.
-This application is developed by the [Institute of Computer Science](http://www.datamining.informatik.uni-mainz.de/) at the Johannes Gutenberg University Mainz.
-OpenRiskNet is funded by the European Commission GA 731075. WEKA is developed by the [Machine Learning Group](https://www.cs.waikato.ac.nz/ml/index.html) at the University of Waikato.
+## Installation des requis du projet
 
-See [Documentation](https://jguwekarest.github.io/jguwekarest/), [Issue Tracker](https://github.com/jguwekarest/jguwekarest/issues) and [Code](https://github.com/jguwekarest/jguwekarest) at GitHub.
-
-## Quickstart
-This is an a swagger-enabled JAX-RS server. The API is in OpenAPI Specification Version 3.0.1 [OpenAPI-Specification 3.0.1](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.1.md)
-The service uses the [JAX-RS](https://jax-rs-spec.java.net/) framework.
-
-To run a simple local environment, please execute the following:
-
-```
-mvn clean package jetty:run
+1. Mettre à jour le package manager
+```shell
+sudo apt-get update
 ```
 
-You can then view the full Rest API on Swagger-UI here:
-
-```
-http://0.0.0.0:8081
-```
-
-To connect the server to a mongodb database you can use a standard mongo docker image pulled from docker hub:
-
-```
-docker pull mongo
-docker run -d mongo
+2. Installer Docker
+```shell
+sudo apt-get install docker-ce docker-ce-cli
 ```
 
-### *curl* Example
-
-POST an arff file to the WEKA BayesNet algorithm using curl:
-```
-curl  -X POST -H "Content-Type: multipart/form-data" -H "Accept:text/x-arff" -F "file=@/yourpathtowekadata/weka-3-8-1/data/weather.nominal.arff;" -F "estimatorParams=0.5"  -F "searchAlgorithm=local.K2" -F useADTree=0 -F "estimator=SimpleEstimator" -F searchParams='-P 1 -S BAYES' http://0.0.0.0:8081/algorithm/BayesNet
+Si vous avez des problèmes pour installer Docker, suivez les étapes de ce site :
+```shell
+https://docs.docker.com/install/linux/docker-ce/ubuntu/
 ```
 
-## Documentation
+3. Installer Docker-compose
+```shell
+sudo apt install docker-compose
+```
 
- * Full example for a **[local or server hosted development environment](./doc/DockerizedDevEnvSetup.md).** 
- * Docker Deployment: **[Build the Docker image with a Dockerfile](./doc/DockerImageDeployment.md)**.
- * Running tests: **[Run Tests](./doc/Testing.md)**.
- * OpenShift Deployment: **[Deployment in OpenShift](./openshift/README.md)**.
- * Commandline Examples with Curl: **[Curl Examples](./doc/CommandlineCurlExamples.md)**.
- * Authentication: **[Keycloak Integration](./doc/TomcatKeyCloakSetup.md)**.
- * Java Docs on gh-pages: **[JavaDocs](https://jguwekarest.github.io/jguwekarest/javadoc/index.html)**.
- 
+4. Installer Git
+```shell
+sudo apt install git
+```
+
+5. Installer Maven
+```shell
+sudo apt install maven
+```
+
+6. Télécharger et installer JProfiler sur le site :
+```shell
+https://www.ej-technologies.com/download/jprofiler/files
+```
+
+## Deployment de Weka Rest sur Docker
+
+1. Cloner le projet
+```shell
+git clone https://github.com/kahinkevin/LOG8371-TP2.git
+```
+
+2. Naviguer dans le dossier du projet
+```shell
+cd LOG8371-TP2/jguwekarest
+```
+
+3. Compiler le projet Weka REST
+```shell
+mvn clean package
+```
+
+4. Build le Docker container
+```shell
+sudo docker build -t locoboy96/jguwekarest:OAS3 .
+```
+
+5. Exécuter docker-compose
+```shell
+sudo docker-compose up
+```
+
+## Configuration de JProfiler
+
+
+## Configuration de JMeter
+

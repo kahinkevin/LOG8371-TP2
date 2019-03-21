@@ -28,7 +28,7 @@ tar -xzf /tmp/jprofiler_linux_11_0.tar.gz -C /usr/local &&\
 # Delete the zip folder
 rm /tmp/jprofiler_linux_11_0.tar.gz
 
-ENV JPAGENT_PATH="-agentpath:/usr/local/jprofiler9/bin/linux-x64/libjprofilerti.so=nowait"
+ENV JPAGENT_PATH="-agentpath:/usr/local/jprofiler11/bin/linux-x64/libjprofilerti.so=nowait"
 EXPOSE 8849
 
 # run as that user
