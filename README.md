@@ -89,4 +89,36 @@ chmod +x <path absolu au fichier>/jprofiler_linux_11_0.sh
 ```
 
 ## Configuration de JMeter
+1. Telecharger et extraire JMeter
+```shell
+wget http://muug.ca/mirror/apache-dist//jmeter/binaries/apache-jmeter-5.1.1.zip
+unzip apache-jmeter-5.1.1.zip
+```
 
+2. (Optionnel) Utiliser le GUI de Jmeter creer un plan de test
+```shell
+cd apache-jmeter-5.1.1/bin/
+./jmeter
+```
+
+3. Rouler les tests existants pour le TP
+```shell
+cd apache-jmeter-5.1.1/bin/
+./jmeter -n -t [CHEMIN_VERS_LE_FOLDER_DU_REPO]/jmeter_loadtests/{linearregression | simplekmeans | zeror}_{low | medium | high | veryhigh}.jmx
+```
+
+4. Enjoy the show!
+
+5. Note importante #1: Les tests existants de JMeter assument que le conteneur Docker de WEKA REST est roule localement avec les parametres par defaut.
+Ainsi, on peut y acceder a travers :
+```shell
+http://localhost:8081/
+```
+
+6. Note importante #2: Les tests (scenarios) sont decrits de la maniere suivante :
+```shell
+- Low : 1 thread (user) avec 10 loops
+- Medium : 10 threads (users) avec 100 loops
+- High : 100 threads (users) avec 1000 loops
+- VeryHigh : 1000 threads (users) avec 1000 loops
+```
