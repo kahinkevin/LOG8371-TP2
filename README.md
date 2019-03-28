@@ -122,3 +122,9 @@ http://localhost:8081/
 - High : 100 threads (users) avec 1000 loops
 - VeryHigh : 1000 threads (users) avec 1000 loops
 ```
+
+## Scaling
+
+```shell
+sudo docker-compose up --scale jguweka=[NB_REPLICATIONS]
+```
