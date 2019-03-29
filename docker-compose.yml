@@ -1,8 +1,7 @@
-version: '3'
+version: '2.2'
 services:
   mongo:
     image: mongo
-    container_name: jguwekamongo
     restart: always
   jguweka:
     image: jguweka/jguweka:OAS3
@@ -14,14 +13,14 @@ services:
     ports:
       - "8081"
       - "8849"
-    expose:
-      - "8081"
     depends_on:
       - mongo
     labels:
       - "service-name:jguweka"
       - "service-type:app-srv"
       - "environment:test"
+    mem_limit: 400M
+    cpus: 0.25
   lb:
     image: dockercloud/haproxy
     links:
