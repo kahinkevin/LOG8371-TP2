@@ -54,12 +54,17 @@ mvn clean package
 sudo docker build -t jguweka/jguweka:OAS3 .
 ```
 
-5. Exécuter docker-compose
+5. Exécuter docker-compose (avec JProfiler) OU
+```shell
+sudo docker-compose -f docker-compose-no-lb.yml up
+```
+
+6. Exécuter docker-compose (avec scaling)
 ```shell
 sudo docker-compose up
 ```
 
-## Exécution de JProfiler
+## Exécution de JProfiler (seulement avec docker-compose-no-lb.yml)
 
 1. Télécharger et installer JProfiler GUI sur le site :
 ```shell
